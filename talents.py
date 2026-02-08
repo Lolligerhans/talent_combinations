@@ -63,7 +63,7 @@ def test():
 if __name__ == "__main__":
     test()
 
-    talents = int(4)
+    talents = int(input("how many talents? "))
     stars = int(input("how many stars? "))
     maximum = int(input("what is the star maximum? "))
     print(
