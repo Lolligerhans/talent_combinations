@@ -7,10 +7,7 @@ from typing import List
 
 from talents import combination_count
 from talents import range_0_to_inclusive as range_0_to_inclusive
-
-from utils import weighted_sample_index
-
-from numpy.random import choice
+from utils import range_0_to_inclusive, weighted_sample_index
 
 
 def precompute_dp(b: int, u: int, m: int) -> List[List[int]]:

@@ -1,6 +1,10 @@
 import random
 
 
+def range_0_to_inclusive(end: int):
+    return range(0, end + 1)
+
+
 def weighted_sample_index(weights):
     """Sample according to weights. Return index of sampled element."""
     total = sum(weights)

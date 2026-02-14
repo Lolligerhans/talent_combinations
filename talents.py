@@ -2,17 +2,14 @@
 
 import math
 
+from utils import range_0_to_inclusive
+
 
 def comb(n, k):
     assert k >= 0
     if n < k:
         return 0
     return math.comb(n, k)
-
-
-# ── Helper ────────────────────────────────────────────────────
-def range_0_to_inclusive(end: int):
-    return range(0, end + 1)
 
 
 # ── Implementation ────────────────────────────────────────────
