@@ -131,7 +131,7 @@ def compare_with_bruteforce(b: int, u: int, m: int) -> None:
 
     # Generate all configurations
     all_configs = []
-    for config in product(range(m + 1), repeat=u):
+    for config in product(range_0_to_inclusive(m), repeat=u):
         if sum(config) == b:
             all_configs.append(config)
 
