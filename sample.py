@@ -32,12 +32,7 @@ def precompute_dp(b: int, u: int, m: int) -> List[List[int]]:
 
 
 def sample_configuration_dp(b: int, u: int, m: int, dp: List[List[int]]) -> List[int]:
-    """
-    Sample a configuration uniformly using the precomputed DP table.
-
-    This runs in O(u * min(m, b)) time.
-    """
-    config = [-1] * u
+    config = [-1 for _ in range(u)]
     remaining_balls = b
     remaining_urns = u
 
