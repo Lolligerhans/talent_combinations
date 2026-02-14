@@ -78,7 +78,7 @@ def sample_configuration_dp(b: int, u: int, m: int, dp: List[List[int]]) -> List
     return config
 
 
-def sample_configuration_efficient(b: int, u: int, m: int) -> List[int]:
+def sample_configuration(b: int, u: int, m: int) -> List[int]:
     """
     One-call function: sample a uniform configuration.
     """
@@ -86,7 +86,7 @@ def sample_configuration_efficient(b: int, u: int, m: int) -> List[int]:
     return sample_configuration_dp(b, u, m, dp)
 
 
-def generate_placement_sequence(config: List[int]) -> List[int]:
+def generate_sequence(config: List[int]) -> List[int]:
     """
     Given a configuration, generate a random placement sequence.
 
@@ -183,11 +183,11 @@ def print_example(b, u, m):
     print(f"Total configurations: {total}")
 
     # Sample a configuration
-    config = sample_configuration_efficient(b, u, m)
+    config = sample_configuration(b, u, m)
     print(f"Sampled configuration: {config}")
 
     # Generate a placement sequence
-    sequence = generate_placement_sequence(config)
+    sequence = generate_sequence(config)
     print(f"Random placement sequence: {sequence[:10]}...")
 
     # Test uniformity
