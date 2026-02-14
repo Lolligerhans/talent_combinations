@@ -10,12 +10,6 @@ from talents import range_0_to_inclusive as range_0_to_inclusive
 
 
 def precompute_dp(b: int, u: int, m: int) -> List[List[int]]:
-    """
-    Precompute DP table where dp[balls][urns] = number of ways
-    to place 'balls' balls into 'urns' urns with capacity m.
-
-    This uses O(b * u) memory and O(b * u) time.
-    """
     assert b >= 0
     assert u >= 0
     assert m >= 0
