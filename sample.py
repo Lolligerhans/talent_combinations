@@ -163,15 +163,12 @@ def print_example(b, u, m):
     print(f"\n=== Example: b={b}, u={u}, m={m} ===")
     compare_with_bruteforce(b, u, m)
 
-    # Compute total number of configurations
     total = combination_count(b, u, m)
     print(f"Total configurations: {total}")
 
-    # Sample a configuration
     config = sample_configuration(b, u, m)
-    print(f"Sampled configuration: {config}")
+    print(f"Randomly sampled configuration: {config}")
 
-    # Generate a placement sequence
     sequence = generate_sequence(config)
     print(f"Random placement sequence: {sequence[:10]}...")
 
