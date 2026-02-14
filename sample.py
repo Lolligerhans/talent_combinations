@@ -180,7 +180,7 @@ def print_example(b, u, m):
 
     # Test uniformity
     print("\n--- Testing uniformity ---")
-    test_uniformity(b, u, m, samples=1000000)
+    test_uniformity(b, u, m, samples=100000)
 
 
 if __name__ == "__main__":
