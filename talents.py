@@ -11,7 +11,7 @@ def comb(n, k):
 
 
 # ── Helper ────────────────────────────────────────────────────
-def range_0_to_inclusive(end):
+def range_0_to_inclusive(end: int):
     return range(0, end + 1)
 
 
