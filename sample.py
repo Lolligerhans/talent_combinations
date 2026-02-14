@@ -42,13 +42,12 @@ def sample_configuration_dp(b: int, u: int, m: int, dp: List[List[int]]) -> List
 
         # Compute weights for each possible count
         weights = [-1 for _ in range_0_to_inclusive(max_balls)]
-        for balls_in_urn in range(max_balls + 1):
+        for balls_in_urn in range_0_to_inclusive(max_balls):
             # Number of ways to complete with remaining_balls - balls_in_urn balls
             # into remaining_urns - 1 urns
             ways = dp[remaining_balls - balls_in_urn][remaining_urns - 1]
             weights[balls_in_urn] = ways
 
-        # Choose based on weights
         total = sum(weights)
         r = random.random() * total
         cum = 0
