@@ -86,7 +86,6 @@ def generate_sequence(config: List[int]) -> List[int]:
 
 def test_uniformity(b: int, u: int, m: int, samples: int = 100000) -> None:
     """Test that the sampling is uniform."""
-    from collections import Counter
 
     print(f"Testing uniformity for b={b}, u={u}, m={m}, samples={samples}")
     print(f"Number of possible configurations: {combination_count(b, u, m)}")
