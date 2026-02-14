@@ -36,6 +36,7 @@ def precompute_dp(b: int, u: int, m: int) -> List[List[int]]:
 
 
 def sample_configuration_dp(b: int, u: int, m: int, dp: List[List[int]]) -> List[int]:
+    """Using result of precomputation by precompute_dp(), sample a configuration uniformly."""
     config = [-1 for _ in range(u)]
     remaining_balls = b
     remaining_urns = u
@@ -43,25 +44,20 @@ def sample_configuration_dp(b: int, u: int, m: int, dp: List[List[int]]) -> List
     for urn_index in range(u):
         # For the current urn, choose how many balls it gets
         max_balls = min(m, remaining_balls)
+        assert remaining_balls >= 0
 
-        # Compute weights for each possible count
+        # Compute weights for each possible ball count of the first urn
         weights = [-1 for _ in range_0_to_inclusive(max_balls)]
         for balls_in_urn in range_0_to_inclusive(max_balls):
-            # Number of ways to complete with remaining_balls - balls_in_urn balls
-            # into remaining_urns - 1 urns
-            ways = dp[remaining_balls - balls_in_urn][remaining_urns - 1]
-            weights[balls_in_urn] = ways
+            # Number of ways to complete with
+            # (remaining_balls - balls_in_urn) balls into
+            # (remaining_urns - 1) urns
+            weights[balls_in_urn] = dp[remaining_balls - balls_in_urn][
+                remaining_urns - 1
+            ]
 
-        total = sum(weights)
-        r = random.random() * total
-        cum = 0
-        chosen = max_balls  # default fallback
-
-        for i, w in enumerate(weights):
-            cum += w
-            if r < cum:
-                chosen = i
-                break
+        assert max_balls == len(weights) - 1
+        chosen = weighted_sample_index(weights)
 
         config[urn_index] = chosen
         remaining_balls -= chosen
