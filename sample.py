@@ -179,8 +179,11 @@ def print_example(b, u, m):
     test_uniformity(b, u, m, samples=100000)
 
 
-if __name__ == "__main__":
-    # Example 1: Small test case
+def main():
     print_example(3, 3, 2)
     print_example(5, 4, 2)
     print_example(10, 5, 4)
+
+
+if __name__ == "__main__":
+    main()
