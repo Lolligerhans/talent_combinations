@@ -4,15 +4,9 @@ import math
 
 from utils import range_0_to_inclusive
 
-
-def comb(n, k):
-    assert k >= 0
-    if n < k:
-        return 0
-    return math.comb(n, k)
+print(math.comb(1, 2))
 
 
-# ── Implementation ────────────────────────────────────────────
 def combination_count(identical_balls, distinct_urns, urn_volume=None):
     urn_volume = identical_balls if urn_volume is None else urn_volume
 
@@ -23,12 +17,12 @@ def combination_count(identical_balls, distinct_urns, urn_volume=None):
     def count_k_overloaded_urns(k):
         sign = (-1) ** k
         assert abs(sign) == 1
-        urn_combination = comb(distinct_urns, k)
+        urn_combination = math.comb(distinct_urns, k)
         overloaded_balls = k * (urn_volume + 1)
         assert overloaded_balls <= identical_balls
         balls_leftover = identical_balls - overloaded_balls
         assert balls_leftover >= 0
-        overload_combinations = comb(
+        overload_combinations = math.comb(
             balls_leftover + distinct_urns - 1, distinct_urns - 1
         )
         if overloaded_balls == identical_balls:
