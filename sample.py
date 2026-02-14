@@ -24,24 +24,16 @@ def precompute_dp(b: int, u: int, m: int) -> List[List[int]]:
     def dp(b, u, m):
         assert u >= 0
         assert b >= 0
-        result = None
         if b == 0:
-            result = 1
-        else:
-            if u == 0:
-                result = 0
-            else:
-                result = sum(
-                    [dp(b - k, u - 1, m) for k in range_0_to_inclusive(min(m, b))]
-                )
-        # print(f"dp({b},{u},{m}) == {result}")
-        return result
+            return 1
+        if u == 0:
+            return 0
+        return sum([dp(b - k, u - 1, m) for k in range_0_to_inclusive(min(m, b))])
 
     result = [
         [dp(balls, urns, m) for urns in range_0_to_inclusive(u)]
         for balls in range_0_to_inclusive(b)
     ]
-    print(f"filled result = {result}")
     return result
 
 
