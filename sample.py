@@ -138,10 +138,8 @@ def compare_with_bruteforce(b: int, u: int, m: int) -> None:
     print(f"Brute-force found {len(all_configs)} configurations")
     print(f"Inclusion-exclusion gives {combination_count(b, u, m)}")
 
-    # Test DP sampling
-    dp = precompute_dp(b, u, m)
-
     # Sample many times and compare frequencies
+    dp = precompute_dp(b, u, m)
     samples = min(100000, 100 * len(all_configs))
     freq = Counter()
     for _ in range(samples):
