@@ -4,8 +4,6 @@ import math
 
 from utils import range_0_to_inclusive
 
-print(math.comb(1, 2))
-
 
 def combination_count(identical_balls, distinct_urns, urn_volume=None):
     urn_volume = identical_balls if urn_volume is None else urn_volume

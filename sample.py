@@ -88,7 +88,7 @@ def test_uniformity(b: int, u: int, m: int, samples: int = 100000) -> None:
     """Test that the sampling is uniform."""
 
     print(f"Testing uniformity for b={b}, u={u}, m={m}, samples={samples}")
-    print(f"Number of possible configurations: {combination_count(b, u, m)}")
+    print(f" Number of possible configurations: {combination_count(b, u, m)}")
 
     dp = precompute_dp(b, u, m)
 
@@ -106,22 +106,23 @@ def test_uniformity(b: int, u: int, m: int, samples: int = 100000) -> None:
     expected_prob = 1 / total_configs
 
     # Check a few configurations
-    print(f"\nSampled {len(freq)} unique configurations out of {total_configs}")
-    print("First few configurations and their empirical probabilities:")
+    print(f" Sampled {len(freq)} unique configurations out of {total_configs}")
+    print(" First few configurations and their empirical probabilities:")
 
     for config, count in list(freq.items())[:15]:
         empirical = count / samples
         print(f"  {config}: {empirical:.6f} (expected: {expected_prob:.6f})")
 
-    # Chi-square test
-    chi2 = 0
-    for count in freq.values():
-        expected = samples * expected_prob
-        chi2 += (count - expected) ** 2 / expected
-
-    print(f"\nChi-square statistic: {chi2:.2f}")
-    print(f"Degrees of freedom: {len(freq) - 1}")
-    print("(Lower values indicate better uniformity)")
+    # Test is LLM generated and I did not check
+    # # Chi-square test
+    # chi2 = 0
+    # for count in freq.values():
+    #     expected = samples * expected_prob
+    #     chi2 += (count - expected) ** 2 / expected
+    #
+    # print(f"\nChi-square statistic: {chi2:.2f}")
+    # print(f"Degrees of freedom: {len(freq) - 1}")
+    # print("(Lower values indicate better uniformity)")
 
 
 def compare_with_bruteforce(b: int, u: int, m: int) -> None:
@@ -159,7 +160,7 @@ def compare_with_bruteforce(b: int, u: int, m: int) -> None:
 
 
 def print_example(b, u, m):
-    print(f"=== Example: b={b}, u={u}, m={m} ===")
+    print(f"\n=== Example: b={b}, u={u}, m={m} ===")
     compare_with_bruteforce(b, u, m)
 
     # Compute total number of configurations
@@ -175,7 +176,6 @@ def print_example(b, u, m):
     print(f"Random placement sequence: {sequence[:10]}...")
 
     # Test uniformity
-    print("\n--- Testing uniformity ---")
     test_uniformity(b, u, m, samples=100000)
 
 
