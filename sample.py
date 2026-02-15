@@ -10,12 +10,23 @@ from utils import range_0_to_inclusive, weighted_sample_index
 
 
 def precompute_dp(b: int, u: int, m: int) -> List[List[int]]:
+    """
+    Precompute Number of possible configurations for up to b balls, u urns, maximum m.
+
+    Returns 2D list configuration_counts[balls][urns].
+    """
+
     assert b >= 0
     assert u >= 0
     assert m >= 0
 
     @functools.cache
     def dp(b, u, m):
+        """
+        Compute possible configurations
+        b balls, u urns, m maximum capacity
+        """
+
         assert u >= 0
         assert b >= 0
         if b == 0:
